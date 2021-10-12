@@ -3466,7 +3466,7 @@ class Event extends AppModel
             foreach ($data['Event']['Tag'] as $tag) {
                 $tag_id = $this->EventTag->Tag->captureTag($tag, $user);
                 if ($tag_id && !in_array($tag_id, $event_tag_ids)) {
-                    $data['Event']['EventTag'][] = array('tag_id' => $tag_id);
+                    $data['Event']['EventTag'][] = array('tag_id' => $tag_id, 'local' => $tag['local']);
                     $event_tag_ids[] = $tag_id;
                 }
             }
